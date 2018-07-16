@@ -17,8 +17,8 @@ class CategoryController extends Controller
         $category = Category::create($request->only('name'));
 
         return response()->json([
-            'status' => (bool)$category,
-            'message' => $category ? 'Category Created' : 'Error Creating Category'
+            'status' => (bool) $category,
+            'message'=> $category ? 'Category Created' : 'Error Creating Category'
         ]);
     }
 
@@ -44,11 +44,12 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-        $status = $category->delete();
+        $status  = $category->delete();
 
         return response()->json([
             'status' => $status,
             'message' => $status ? 'Category Deleted' : 'Error Deleting Category'
         ]);
     }
+
 }
